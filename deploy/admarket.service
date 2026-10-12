@@ -1,0 +1,13 @@
+[Unit]
+Description=AdMarket — биржа прямой рекламы
+After=network.target
+
+[Service]
+WorkingDirectory=/opt/admarket
+ExecStart=/usr/bin/python3 /opt/admarket/app.py
+Environment=PORT=8000
+Restart=always
+User=www-data
+
+[Install]
+WantedBy=multi-user.target
