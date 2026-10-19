@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block fulltitle %}{{ title }} — {{ site.site_title }}{% endblock %}</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="/">{{ site.site_title }}</a>
+    <span class="tagline">{{ site.tagline }}</span>
+    <nav class="main-nav">
+      <a href="/">Главная</a>
+      {% for c in nav %}
+      <div class="nav-item">
+        <a href="{{ f('url_cat', c) }}">{{ c.title }}</a>
+        {% if c.children %}
+        <ul class="nav-sub">
+          {% for sc in c.children %}
+          <li><a href="{{ f('url_cat', sc) }}">{{ sc.title }}</a>
+            {% if sc.children %}
+            <ul class="nav-sub3">
+              {% for ssc in sc.children %}
+              <li><a href="{{ f('url_cat', ssc) }}">{{ ssc.title }}</a></li>
+              {% endfor %}
+            </ul>
+            {% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </div>
+      {% endfor %}
+      <a href="/about">О сайте</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container layout">
+  <main class="content">{% block content %}{% endblock %}</main>
+  <aside class="sidebar">
+    <div class="widget">
+      <h3>Категории</h3>
+      <ul class="cat-tree">
+        {% for c in nav %}
+        <li><a href="{{ f('url_cat', c) }}">{{ c.title }}</a>
+          {% if c.children %}
+          <ul>{% for sc in c.children %}
+            <li><a href="{{ f('url_cat', sc) }}">{{ sc.title }}</a>
+              {% if sc.children %}
+              <ul>{% for ssc in sc.children %}
+                <li><a href="{{ f('url_cat', ssc) }}">{{ ssc.title }}</a></li>
+              {% endfor %}</ul>{% endif %}
+            </li>
+          {% endfor %}</ul>{% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </aside>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    © {{ year }} {{ site.site_title }} · <a href="/sitemap.xml">Sitemap</a> · <a href="/admin/">Админка</a>
+  </div>
+</footer>
+</body>
+</html>

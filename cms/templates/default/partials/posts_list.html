@@ -1,0 +1,8 @@
+{% for p in posts %}
+<article class="post-card">
+  <h3 class="post-card-title"><a href="{{ f('url_post', p) }}">{{ p.title }}</a></h3>
+  <div class="post-meta">{{ f('date', p.published_at) }} · {% for c in p.category_ids %}{% set cat = f('cat_by_id', c) %}{% if cat %}<a href="{{ f('url_cat', cat) }}">{{ cat.title }}</a>{% if not loop.last %}, {% endif %}{% endif %}{% endfor %}</div>
+  <p>{{ f('excerpt_of', p) }}</p>
+</article>
+{% endfor %}
+{% if not posts %}<p class="muted">Записей пока нет.</p>{% endif %}

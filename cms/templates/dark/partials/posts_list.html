@@ -1,0 +1,7 @@
+{% for p in posts %}
+<div class="post-card">
+  <a class="pt" href="{{ f('url_post', p) }}">{{ p.title }}</a>
+  <div class="pm">{{ f('date', p.published_at) }} · {{ f('excerpt_of', p) }}</div>
+</div>
+{% endfor %}
+{% if not posts %}<p class="muted">Записей пока нет.</p>{% endif %}
