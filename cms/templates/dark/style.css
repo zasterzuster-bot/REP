@@ -1,0 +1,21 @@
+/* Тема dark — пример пользовательской темы */
+*{box-sizing:border-box}
+body{margin:0;background:#0d1117;color:#c9d1d9;font-family:system-ui,sans-serif;line-height:1.65}
+a{color:#58a6ff;text-decoration:none}a:hover{text-decoration:underline}
+.hero-top{padding:2.5rem 1rem 1rem;text-align:center;border-bottom:1px solid #21262d}
+.logo{font-size:1.8rem;font-weight:800;color:#f0f6fc}
+.sub{color:#8b949e;margin:.3rem 0 1rem}
+.topnav{display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap;font-size:.95rem}
+.wrap{max-width:720px;margin:0 auto;padding:1.5rem 1rem}
+.hero{text-align:center;padding:1.5rem 0}.hero h1{color:#f0f6fc}
+.post-card{border-bottom:1px solid #21262d;padding:1rem 0}
+.pt{font-size:1.15rem;font-weight:600;color:#f0f6fc}
+.pm{color:#8b949e;font-size:.85rem;margin-top:.2rem}
+.body pre{background:#161b22;padding:1rem;border-radius:8px;overflow-x:auto}
+.body code{background:#161b22;padding:.1rem .35rem;border-radius:4px}
+.body pre code{background:none}
+.body blockquote{border-left:3px solid #58a6ff;margin:1rem 0;padding:.2rem 1rem;color:#8b949e}
+.tag{display:inline-block;background:#1f2937;border-radius:99px;padding:.1rem .6rem;font-size:.8rem;margin:.1rem}
+.pagination{display:flex;gap:1rem;justify-content:center;margin:1.5rem 0;color:#8b949e}
+.muted{color:#8b949e}
+footer{text-align:center;color:#8b949e;border-top:1px solid #21262d;padding:1.2rem;margin-top:2rem;font-size:.85rem}

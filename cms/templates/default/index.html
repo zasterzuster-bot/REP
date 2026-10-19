@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="hero">
+  <h1>{{ home.hero_title }}</h1>
+  <p>{{ home.hero_text }}</p>
+</section>
+
+{% for sec in home.sections %}
+  {% if sec.type == "latest_posts" %}
+    <section class="home-section">
+      <h2>{{ sec.title }}</h2>
+      {% include "partials/posts_list.html" %}
+    </section>
+  {% endif %}
+  {% if sec.type == "text" %}
+    <section class="home-section"><h2>{{ sec.title }}</h2>{{ f('raw', sec.html) }}</section>
+  {% endif %}
+{% endfor %}
+
+{% if not home.sections %}
+  <section class="home-section"><h2>Записи</h2>{% include "partials/posts_list.html" %}</section>
+{% endif %}
+
+{% include "partials/pagination.html" %}
+{% endblock %}

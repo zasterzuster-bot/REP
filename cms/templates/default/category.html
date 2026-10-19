@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<nav class="breadcrumbs">{% for c in trail %}<a href="{{ f('url_cat', c) }}">{{ c.title }}</a>{% if not loop.last %} / {% endif %}{% endfor %}</nav>
+<h1>Категория: {{ cat.title }}</h1>
+{% if cat.description %}<p class="muted">{{ cat.description }}</p>{% endif %}
+
+{% if subcats %}
+<div class="subcats"><h3>Подкатегории:</h3>
+{% for sc in subcats %}<a class="tag" href="{{ f('url_cat', sc) }}">{{ sc.title }}</a> {% endfor %}</div>
+{% endif %}
+
+{% include "partials/posts_list.html" %}
+{% include "partials/pagination.html" %}
+{% endblock %}

@@ -1,0 +1,7 @@
+{% if total_pages > 1 %}
+<nav class="pagination">
+  {% if page > 1 %}<a href="{{ page_url }}?page={{ prev_page }}">← Новее</a>{% endif %}
+  <span>Стр. {{ page }}/{{ total_pages }}</span>
+  {% if page < total_pages %}<a href="{{ page_url }}?page={{ next_page }}">Старше →</a>{% endif %}
+</nav>
+{% endif %}

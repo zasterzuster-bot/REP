@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+<p class="pm">{% for c in trail %}<a href="{{ f('url_cat', c) }}">{{ c.title }}</a>{% if not loop.last %} / {% endif %}{% endfor %}</p>
+<h1>{{ cat.title }}</h1>
+{% if subcats %}<p>{% for sc in subcats %}<a class="tag" href="{{ f('url_cat', sc) }}">{{ sc.title }}</a> {% endfor %}</p>{% endif %}
+{% include "partials/posts_list.html" %}
+{% include "partials/pagination.html" %}
+{% endblock %}

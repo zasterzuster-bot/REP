@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ title }} · {{ site.site_title }}</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="hero-top">
+  <a class="logo" href="/">{{ site.site_title }}</a>
+  <p class="sub">{{ site.tagline }}</p>
+  <nav class="topnav">
+    <a href="/">Главная</a>
+    {% for c in nav %}<a href="{{ f('url_cat', c) }}">{{ c.title }}</a>{% endfor %}
+    <a href="/about">О сайте</a>
+  </nav>
+</header>
+<main class="wrap">{% block content %}{% endblock %}</main>
+<footer>© {{ year }} · <a href="/admin/">Админка</a></footer>
+</body>
+</html>

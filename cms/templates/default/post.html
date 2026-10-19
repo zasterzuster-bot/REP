@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<article class="post-full">
+  <h1>{{ post.title }}</h1>
+  <div class="post-meta">{{ f('date', post.published_at) }} · {% for c in cats %}<a href="{{ f('url_cat', c) }}">{{ c.title }}</a>{% if not loop.last %}, {% endif %}{% endfor %}</div>
+  <div class="post-body">{{ f('md', post.body) }}</div>
+  <div class="post-tags">{% for t in post.tags %}<a class="tag" href="/tag/{{ t }}">#{{ t }}</a> {% endfor %}</div>
+</article>
+
+{% if related %}
+<section class="related">
+  <h2>Похожие записи</h2>
+  {% set posts = related %}
+  {% include "partials/posts_list.html" %}
+</section>
+{% endif %}
+{% endblock %}
